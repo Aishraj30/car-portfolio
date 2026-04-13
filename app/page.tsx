@@ -137,6 +137,19 @@ export default function RacingUI() {
             <div className="absolute top-4 left-4 font-mono text-[10px] text-cyan-500/50 text-left">
               LAT: 40.7128<br/>LONG: -74.0060<br/>STATUS: DRIFT_READY
             </div>
+            
+            <div className="absolute top-4 right-4 font-mono text-[10px] text-cyan-400 group/advisory text-right">
+              <div className="text-[8px] text-purple-400 font-black tracking-[0.2em] mb-1 opacity-70">CRITICAL_INTEL:</div>
+              <div className="bg-cyan-500/10 border-r-2 border-cyan-400 pr-3 py-1 animate-pulse">
+                <span className="text-white font-black uppercase">Open on Laptop/Desktop</span><br/>
+                <span className="text-[8px] opacity-60">OPTIMAL_DRIVE_CONFIGURATION</span>
+              </div>
+              {/* Scanning Bar Animation */}
+              <div className="h-[2px] w-full bg-cyan-400/30 mt-1 relative overflow-hidden">
+                <div className="absolute inset-0 bg-cyan-400 w-1/3 animate-scan" />
+              </div>
+            </div>
+
             <div className="absolute bottom-4 right-4 font-mono text-[10px] text-purple-500/50 text-right">
               VER: 2.0.4-STABLE<br/>ENGINE: V8_TURBO
             </div>
@@ -177,6 +190,13 @@ export default function RacingUI() {
         @keyframes pulse-border {
           0%, 100% { box-shadow: 0 0 15px rgba(168, 85, 247, 0.3); }
           50% { box-shadow: 0 0 40px rgba(168, 85, 247, 0.6); }
+        }
+        @keyframes scan {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(300%); }
+        }
+        .animate-scan {
+          animation: scan 2s linear infinite;
         }
       `}</style>
     </main>
